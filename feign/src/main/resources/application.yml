@@ -1,0 +1,16 @@
+server:
+  port: 8001
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:5000/eureka/
+spring:
+  application:
+    name: feign
+ribbon:
+  ReadTimeout: 4000
+  ConnectionTimeout: 4000
+  OkToRetryOnAllOperations: true
+  MaxAutoRetriesNextServer: 1 # 当前实例全部失败后可以换1个实例再重试
+  MaxAutoRetries: 1 # 在当前实例只重试2次

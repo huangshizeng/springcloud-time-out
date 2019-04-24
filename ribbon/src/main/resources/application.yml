@@ -1,0 +1,19 @@
+server:
+  port: 8000
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:5000/eureka/
+spring:
+  application:
+    name: ribbon
+ribbon:
+  ReadTimeout: 1000
+  ConnectionTimeout: 1000
+  OkToRetryOnAllOperations: true
+  MaxAutoRetriesNextServer: 1 # 当前实例全部失败后可以换1个实例再重试
+  MaxAutoRetries: 2 # 在当前实例只重试2次
+  http:
+    client:
+      enabled: true
