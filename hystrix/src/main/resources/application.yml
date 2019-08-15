@@ -7,7 +7,7 @@ eureka:
       defaultZone: http://localhost:5000/eureka/
 spring:
   application:
-    name: hystrix
+    name: service-hystrix
 feign:
   hystrix:
     enabled: true
@@ -17,10 +17,10 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 10000 # 断路器的超时时间需要大于ribbon的超时时间，不然不会触发重试
+            timeoutInMilliseconds: 10000 # 断路器的超时时间需要大于ribbon的超时时间，不然重试没有意义
 ribbon:
   ReadTimeout: 2000
   ConnectionTimeout: 2000
   OkToRetryOnAllOperations: true
   MaxAutoRetriesNextServer: 1
-  MaxAutoRetries: 1
+  MaxAutoRetries: 0
